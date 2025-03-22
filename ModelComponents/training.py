@@ -1,7 +1,7 @@
 import torch
 
 
-def train(model, train_loader, test_loader, criterion, optimizer, checkpoint_path, device, num_epochs, cnn=True):
+def train(model, train_loader, test_loader, criterion, optimizer, checkpoint_path, device, num_epochs, scheduler=None, cnn=True):
     best_accuracy = 0.0
     train_loss_list = []
     test_loss_list = []
@@ -76,6 +76,9 @@ def train(model, train_loader, test_loader, criterion, optimizer, checkpoint_pat
 
         train_acc_list.append(train_accuracy)
         test_acc_list.append(test_accuracy)
+
+        if scheduler is not None:
+            scheduler.step()
 
         if test_accuracy > best_accuracy:
             best_accuracy = test_accuracy
