@@ -4,11 +4,11 @@ import random
 from torch.utils.data import Dataset
 import torchaudio
 
-from Parametrization.mfcc import parametrisation
+from Parametrization.log_spectro import log_specrtro_grayscale_matrix
 
 
 class FolderAudioDataset(Dataset):
-    def __init__(self, root_dir,noise_dir, noise_prob, snr_db=10):
+    def __init__(self, root_dir, noise_dir, noise_prob, snr_db=10):
         self.root_dir = root_dir
         self.noise_dir = noise_dir
         self.noise_prob = noise_prob
