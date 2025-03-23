@@ -4,7 +4,7 @@ import random
 from torch.utils.data import Dataset
 import torchaudio
 
-from Parametrization.log_spectro import log_specrtro_grayscale_matrix
+from Parametrization.log_spectro import compute_log_spectrogram
 
 
 class FolderAudioDataset(Dataset):
@@ -58,6 +58,6 @@ class FolderAudioDataset(Dataset):
             processed_waveform = waveform
 
         # Paramétrisation
-        mfcc = parametrisation(processed_waveform.flatten())
+        spectro = compute_log_spectrogram(processed_waveform.flatten())
 
-        return mfcc, label
+        return spectro, label
