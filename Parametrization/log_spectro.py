@@ -1,9 +1,5 @@
-
-
-
 import torch
 import torchaudio
-
 
 
 def compute_log_spectrogram(signal, n_fft=400, win_length=400, hop_length=160):
