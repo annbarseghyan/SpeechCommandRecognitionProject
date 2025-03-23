@@ -67,5 +67,3 @@ class MLP(nn.Module):
 
         x = self.fc4(x)
         return x
-
-
